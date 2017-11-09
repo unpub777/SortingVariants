@@ -22,7 +22,6 @@ namespace TestSorting.Sorting
 			}
 			_comparer = comparer;
 			_result = inputData.ToList();
-			_random = new Random();
 
 			QuickSortProcess(0, inputData.Count() - 1, 0);
 
