@@ -5,7 +5,7 @@ namespace TestSorting.Sorting
 {
     public static class ListExt
     {
-        public static void Swap<T>(this List<T> list, int firstIndex, int secondIndex, int deep)
+        public static void Swap<T>(this List<T> list, int firstIndex, int secondIndex)
         {
             if (list == null)
             {

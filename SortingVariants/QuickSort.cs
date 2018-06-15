@@ -8,9 +8,8 @@ namespace TestSorting.Sorting
 	{
 		IComparer<T> _comparer;
 		List<T> _result;
-		Random _random;
 
-		public IEnumerable<T> Sort(IEnumerable<T> inputData, IComparer<T> comparer)
+		public IList<T> Sort(IEnumerable<T> inputData, IComparer<T> comparer)
 		{
 			if (inputData == null)
 			{
@@ -23,12 +22,12 @@ namespace TestSorting.Sorting
 			_comparer = comparer;
 			_result = inputData.ToList();
 
-			QuickSortProcess(0, inputData.Count() - 1, 0);
+			QuickSortProcess(0, inputData.Count() - 1);
 
 			return _result;
 		}
 
-		private void QuickSortProcess(int lowIndex, int highIndex, int deep)
+		private void QuickSortProcess(int lowIndex, int highIndex)
 		{
 			var supportIndex = lowIndex + ((highIndex - lowIndex) / 2) + ((highIndex - lowIndex) % 2);
 			var supportValue = _result[supportIndex];
@@ -46,14 +45,14 @@ namespace TestSorting.Sorting
 				}
 				if (highIndex > lowIndex)
 				{
-					_result.Swap(lowIndex++, highIndex--, deep);
+					_result.Swap(lowIndex++, highIndex--);
 				}
 			}
 
 			if (high - low > 1)
 			{
-				QuickSortProcess(low, highIndex, deep++);
-				QuickSortProcess(lowIndex, high, deep++);
+				QuickSortProcess(low, highIndex);
+				QuickSortProcess(lowIndex, high);
 			}
 		}
 	}
